@@ -8,13 +8,11 @@
 
 
 <!-- CSS/Bootstrap link  -->
-  <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="assets/style.css">
 <!-- Javascript/jQuery  -->
 
   <script> rel="text/javascript" href="yaysnow.js" </script>
-
 
 <!-- Firebase -->
 
@@ -22,7 +20,7 @@
 
 <!-- header -->
 
-<header> 
+<header class= "fluid-container"> 
 
 <h1> Stay in the Snow </h1>
 
@@ -30,15 +28,33 @@
 
 <body>
 
-<div class="container"> </div>
+<div class= "container"> </div>
 
 <!-- search area DIV  -->
 
 <div class="row searchArea">
 
-  <div class="col-sm-4 Mountain"></div>
-  <div class="col-sm-4 myLocation "></div>
-  <div class="col-sm-4 clearButton"></div>
+  <div class="col-sm-4 mountain">
+      <div class="form-group">
+          <label for="mountainInput">Enter mountain:</label>
+          <input type="text" class="form-control" id="mountainInput" aria-describedby="emailHelp" placeholder="Mountian name">
+          <small id="emailHelp" class="form-text text-muted">Stay in the (s)Know with live-time mountain conditions!</small>
+        </div>
+      
+  </div>
+  
+  <div class="col-sm-4 myLocation ">
+      <div class="form-group">
+          <label for="locationInput">Enter your current location:</label>
+          <input type="text" class="form-control" id="locationInput" aria-describedby="emailHelp" placeholder="Mountian name">
+
+        </div>
+
+  </div>
+  
+  <div class="col-sm-4 clearButton">
+      <button type="button" class="btn btn-primary">Send</button>
+  </div>
 
 </div>
 
@@ -51,9 +67,6 @@
   <div class = "col-md-4 info"> </div>
 
   <div class = "col-md-4 info"> </div>
-
-  
-
 
 </div>
 
