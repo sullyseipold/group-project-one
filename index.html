@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
 
   <!-- Javascript/jQuery  -->
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -22,55 +23,104 @@
 
 <!-- header -->
 
-<header class="fluid-container">
-
-  <h1> Stay in the Snow </h1>
-
-</header>
-
 <body>
 
-  <div class="container"> </div>
+  <header class="fluid-container">
 
-  <!-- search area DIV  -->
+    <h1> Stay in the Snow </h1>
 
-  <div class="row searchArea">
+  </header>
 
-    <div class="col-sm-4 mountain">
-      <div class="form-group">
-        <label for="mountainInput">Enter mountain:</label>
-        <input type="text" class="form-control" id="mountainInput" placeholder="Mountain name">
-        <small id="emailHelp" class="form-text text-muted">Stay in the (s)Know with live-time mountain conditions!</small>
+
+  <div class="container">
+
+    <!-- search area DIV  -->
+
+    <div class="row searchArea">
+
+      <!-- Enter Mountain div-->
+
+      <div class="col-sm-4 mountain">
+        <div class="form-group">
+          <label for="mountainInput">Enter mountain:</label>
+          <input type="text" class="form-control" id="mountainInput" aria-describedby="emailHelp" placeholder="Mountian name">
+          <small id="emailHelp" class="form-text text-muted">Stay in the (s)Know with live-time mountain conditions!</small>
+        </div>
+
       </div>
 
-    </div>
+      <!-- Enter Location div -->
 
-    <div class="col-sm-4 myLocation ">
-      <div class="form-group">
-        <label for="locationInput">Enter your current location:</label>
-        <input type="text" class="form-control" id="locationInput" placeholder="Mountain name">
+      <div class="col-sm-4 myLocation ">
+        <div class="form-group">
+          <label for="locationInput">Enter your current location:</label>
+          <input type="text" class="form-control" id="locationInput" aria-describedby="emailHelp" placeholder="Mountian name">
+          <small id="locationHelp" class="form-text text-muted">Where are you now?</small>
+        </div>
 
       </div>
 
-    </div>
 
-    <div class="col-sm-4">
-      <button type="button" class="btn btn-primary searchButton">Send</button>
-    </div>
+      <!-- Clear Button div -->
 
+      <div class="col-lg-4">
+        <div>
+          <iframe width="100%" height="170" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/288486789&color=%2300fbff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-secondary btn-lg btn-block .searchButton">Send yo' Search</button>
+
+    </div>
   </div>
-
-  <!-- search result area DIV -->
 
   <div class="row searchResult">
 
-    <div class="col-md-4 info"> </div>
+    <div class="customContainer">
 
-    <div class="col-md-4 info"> </div>
+      <div class="row card-deck searchResult">
 
-    <div class="col-md-4 info"> </div>
+        <div class="info">
+          <div class="card">
+            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
 
-  </div>
+        <div class="info">
+          <div class="card">
+            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info">
+          <div class="card">
+            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
 
 
 </body>
