@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,8 @@
 
 
   <!-- CSS/Bootstrap link  -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style.css">
   <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
 
@@ -17,69 +18,74 @@
   <script rel="text/javascript" href="yaysnow.js" ></script>
 
 
-  <!-- Firebase -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script rel="text/javascript" src="assets/yaysnow.js" defer></script>
 
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 </head>
 
-  <!-- header -->
+<!-- header -->
+
 <body>
 
-<header class= "fluid-container"> 
+  <header class="fluid-container">
 
-<h1> Stay in the Snow </h1>
+    <h1> Stay in the Snow </h1>
 
-</header>
+  </header>
 
 
-<div class= "container"> 
+  <div class="container">
 
-  <!-- search area DIV  -->
+    <!-- search area DIV  -->
 
-<div class="row searchArea">
+    <div class="row searchArea">
 
-  <!-- Enter Mountain div-->
+      <!-- Enter Mountain div-->
 
-  <div class="col-sm-4 mountain">
-      <div class="form-group">
+      <div class="col-sm-4 mountain">
+        <div class="form-group">
           <label for="mountainInput">Enter mountain:</label>
           <input type="text" class="form-control" id="mountainInput" aria-describedby="mountain-help-text" placeholder="Mountian name">
           <small id="mountain-input-bottom-text" class="form-text text-muted">Stay in the (s)Know with live-time mountain conditions!</small>
         </div>
-      
-  </div>
 
-  <!-- Enter Location div -->
-  
-  <div class="col-sm-4 myLocation ">
-      <div class="form-group">
+      </div>
+
+      <!-- Enter Location div -->
+
+      <div class="col-sm-4 myLocation ">
+        <div class="form-group">
           <label for="locationInput">Enter your current location:</label>
           <input type="text" class="form-control" id="locationInput" aria-describedby="emailHelp" placeholder="where are you?">
           <small id="locationHelp" class="form-text text-muted">Where are you now?</small>
         </div>
 
-  </div>
-  
+      </div>
 
-  <!-- Clear Button div -->
-  
-  <div class="col-lg-4">
-    <div>
-        <iframe width="100%" height="170" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/288486789&color=%2300fbff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+  <button type="button" class="btn btn-secondary btn-lg btn-block" id="search-button">Send yo' Search</button>
+      <!-- Clear Button div -->
+
+      <div class="col-lg-4">
+        <div>
+          <iframe width="100%" height="170" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/288486789&color=%2300fbff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-secondary btn-lg btn-block .searchButton">Send yo' Search</button>
+
     </div>
   </div>
 
-  <button type="button" class="btn btn-secondary btn-lg btn-block" id="search-button">Send yo' Search</button>
+  <div class="row searchResult">
 
-</div>
-</div>
+    <div class="customContainer">
 
-<!-- search result area DIV -->
+      <div class="row card-deck searchResult">
 
-<div class = "customContainer">
-
-  <div class = "row card-deck searchResult">
-
-      <div class = "info"> 
+        <div class="info">
           <div class="card">
               <div class="card-body">
                 <h5 class="card-title"></h5>
@@ -87,7 +93,7 @@
                 <p class="card-text lift-report-display"></p>
               </div>
           </div>
-      </div>
+        </div>
 
       <div class = "info"> 
         <div class="card">
@@ -111,7 +117,6 @@
 
       </div>
 
-</div>
 
 </body>
 
