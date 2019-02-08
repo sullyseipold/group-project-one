@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
   <!-- Load the bootstrap stuff -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
   <!-- Load Jquery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -22,101 +22,64 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
   <script src="./assets/javascript/yaysnow.js"></script>
   <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-
-
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 </head>
 
-<!-- header -->
-
 <body>
 
   <header class="fluid-container">
-
     <h1> Stay in the Snow </h1>
-
   </header>
 
-
   <div class="container">
-
-    <!-- search area DIV  -->
+    <!--container-->
 
     <div class="row searchArea">
-
-      <!-- Enter Mountain div-->
+      <!--searchArea div-->
 
       <div class="col-sm-4 mountain">
+        <!--mountain div-->
         <div class="form-group">
           <label for="mountainInput">Enter mountain:</label>
-          <input type="text" class="form-control" id="mountainInput" aria-describedby="mountain-help-text"
+          <input type="text" class="form-control input-text" id="mountainInput" aria-describedby="mountain-help-text"
             placeholder="Mountian name">
           <small id="mountain-input-bottom-text" class="form-text text-muted">Stay in the (s)Know with live-time
             mountain conditions!</small>
         </div>
-
       </div>
-
-      <!-- Enter Location div -->
+      <!--mountain div-->
 
       <div class="col-sm-4 myLocation ">
+        <!--location div-->
         <div class="form-group">
           <label for="locationInput">Enter your current location:</label>
-          <input type="text" class="form-control" id="locationInput" aria-describedby="emailHelp"
-            placeholder="where are you?">
-          <small id="locationHelp" class="form-text text-muted">Where are you now?</small>
+          <input type="text" class="form-control input-text" id="locationInput" aria-describedby="emailHelp"
+            placeholder="city, state">
+          <small id="locationHelp" class="form-text text-muted">Where are you now?1</small>
         </div>
       </div>
+      <!--location div-->
 
-      <div class="col-lg-4">
-        <div>
-          <iframe width="100%" height="170" scrolling="no" frameborder="no" allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/288486789&color=%2300fbff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-        </div>
+      <div class="col-sm-4 top-search">
+          <span class="top-search-title block">Today's Top Searches:</span>
+          <span class="top-search-text block" id="top-search1"></span>
+          <span class="top-search-text block" id="top-search2"></span>
+          <span class="top-search-text block" id="top-search3"></span>
       </div>
-      <button type="button" class="btn btn-secondary btn-lg btn-block" id="searchButton">Send yo' Search</button>
     </div>
+    <!--searchArea div-->
+    <div>
+      <!--search button div-->
+      <button type="button" class="btn btn-secondary btn-lg btn-block disabled" id="searchButton">Send yo'
+        Search</button>
+    </div>
+    <!--search button div-->
   </div>
-
-    <div class="customContainer">
-      <div class="row card-deck searchResult">
-        <div class="info">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text weather-display"></p>
-              <p class="card-text lift-report-display"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="info">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text weather-display"></p>
-              <p class="card-text lift-report-display"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="info">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text weather-display"></p>
-              <p class="card-text lift-report-display"></p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-
+  <!--container-->
 </body>
-
 </html>
