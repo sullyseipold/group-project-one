@@ -1,7 +1,7 @@
 $(document).ready(function () {
   console.log("ready");
 
-  var liftieUrl = "http://liftie.info/api/resort/";
+  var liftieUrl = "https://liftie.info/api/resort/";
   var cardCount = 0;
   var cardNumber = 0;
   var row;
@@ -24,7 +24,7 @@ $(document).ready(function () {
   firebase.initializeApp(config);
   var database = firebase.database();
 
-  
+
   // at each click of the search button, check the database for that search term
   // the function will either add to the searchCount or add the mountain as needed
   $("#searchButton").on("click", function (event) {
