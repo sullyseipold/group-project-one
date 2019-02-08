@@ -42,12 +42,15 @@
     <div class="row searchArea">
       <!--searchArea div-->
 
+      <!--mountain div-->
       <div class="col-sm-4 mountain">
-        <!--mountain div-->
         <div class="form-group">
           <label for="mountainInput">Enter mountain:</label>
-          <input type="text" class="form-control input-text" id="mountainInput" aria-describedby="mountain-help-text"
-            placeholder="Mountian name">
+          <input type="text" class="form-control input-text needs-validation" id="mountainInput"
+            aria-describedby="mountain-help-text" placeholder="Mountian name" required>
+          <div class="invalid-feedback">
+            Please enter a valid mountain
+          </div>
           <small id="mountain-input-bottom-text" class="form-text text-muted">Stay in the (s)Know with live-time
             mountain conditions!</small>
         </div>
@@ -55,31 +58,50 @@
       <!--mountain div-->
 
       <div class="col-sm-4 myLocation ">
-        <!--location div-->
+
+        <!--city div-->
         <div class="form-group">
-          <label for="locationInput">Enter your current location:</label>
-          <input type="text" class="form-control input-text" id="locationInput" aria-describedby="emailHelp"
-            placeholder="city, state">
-          <small id="locationHelp" class="form-text text-muted">Where are you now?1</small>
+          <label for="cityInput">Enter your current city:</label>
+          <input type="text" class="form-control input-text needs-validation" id="cityInput"
+            aria-describedby="emailHelp" placeholder="city">
+          <div class="invalid-feedback">
+            Please provide a valid city
+          </div>
+        </div>
+        <!--city dive-->
+
+        <!--state div-->
+        <div class="form-group">
+          <label for="stateInput">Enter your current state:</label>
+          <input type="text" class="form-control input-text needs-validation" id="stateInput"
+            aria-describedby="emailHelp" placeholder="state">
+          <div class="invalid-feedback">
+            Please provide a valid state
+          </div>
         </div>
       </div>
-      <!--location div-->
+      <!--state div-->
 
-      <div class="col-sm-4 top-search">
+      <div class="col-sm-4 mountain">
+        <div class="form-group">
           <span class="top-search-title block">Today's Top Searches:</span>
           <span class="top-search-text block" id="top-search1"></span>
           <span class="top-search-text block" id="top-search2"></span>
           <span class="top-search-text block" id="top-search3"></span>
+        </div>
       </div>
     </div>
     <!--searchArea div-->
+
     <div>
       <!--search button div-->
-      <button type="button" class="btn btn-secondary btn-lg btn-block disabled" id="searchButton">Send yo'
+      <button type="submit" class="btn btn-secondary btn-lg btn-block" id="searchButton">Send yo'
         Search</button>
     </div>
     <!--search button div-->
+
   </div>
   <!--container-->
 </body>
+
 </html>

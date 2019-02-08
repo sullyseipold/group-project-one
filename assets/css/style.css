@@ -61,9 +61,6 @@ body {
     font-family: 'Caveat', cursive;
     font-size: 36px;
     background-color:rgba(51, 169, 248, 0.801);
-    height: 100%;
-
-
 }
 
 .myLocation {
@@ -72,17 +69,7 @@ body {
     font-family: 'Caveat', cursive;
     background-color: rgba(242, 188, 253, 0.685);
     font-size: 36px;
-    height: 100%;
-
 }
-
-/* .info {
-    background-color:  rgba(0, 0, 0, 0);
-    height: 250px;
-    width: 33%;
-    margin-top: 25px;
-
-} */
 
 .customContainer {
     margin: 0 5% 0 5%;
@@ -104,7 +91,7 @@ body {
 
 .top-search {
     font-size: 36px;
-    height: 168px;
+    height: 202px;
 }
 
 .block {
@@ -124,6 +111,11 @@ body {
     margin-top: 10px;
     margin-left: -14px;
     margin-bottom: 10px;
+}
+
+.invalid-feedback {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
