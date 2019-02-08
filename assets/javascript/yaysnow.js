@@ -1,5 +1,21 @@
 $(document).ready(function () {
-  console.log("ready");
+
+  console.log('ready');
+  //form validation
+  window.addEventListener('load', function () {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function (form) {
+      form.addEventListener('submit', function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
 
   var liftieUrl = "https://liftie.info/api/resort/";
   var cardCount = 0;
@@ -7,8 +23,6 @@ $(document).ready(function () {
   var row;
   var sortedMountains = [];
 
-  //disable search button
-  $('#searchButton').prop('disabled', true);
 
 
   // Initialize Firebase
@@ -30,31 +44,53 @@ $(document).ready(function () {
   $("#searchButton").on("click", function (event) {
     console.log("I've been clicked!");
 
-    var searchTerm = $("#mountainInput").val().trim().toLowerCase();
+    var reg = /^[a-zA-Z]+(-[a-zA-Z]+)*$/;
+    var inputs = document.getElementsByClassName('needs-validation');
+    var formValid = true;
 
-    var mtn = sortedMountains.filter(mountain => mountain[0] == searchTerm);
-    console.log('mtn = ', mtn);
+    var validation = Array.prototype.filter.call(inputs, function (input) {
 
+      var field = $(input);
 
-    if (mtn.length > 0) {
-      var cnt = mtn[0][1];
-      cnt++;
-      console.log('inside update existing');
-      database.ref('/searches').child(searchTerm).update({ count: cnt });
+      if (!reg.test(field.val())) {
 
-    } else {
-      console.log('inside new mountain');
-      database.ref('/searches').child(searchTerm).set({ count: 1 });
+        field.addClass('is-invalid');
+        formValid = false;
+      } else {
+        field.removeClass('is-invalid');
+      }
+    });
+
+    if (formValid) {
+
+      var searchTerm = $("#mountainInput").val().trim().toLowerCase();
+      var mtnObj = sortedMountains.filter(mountain => mountain[0] == searchTerm);
+      console.log('mtn = ', mtnObj);
+
+      if (mtnObj.length > 0) {
+        var cnt = mtnObj[0][1];
+        cnt++;
+        console.log('inside update existing');
+        database.ref('/searches').child(searchTerm).update({ count: cnt });
+
+      } else {
+        console.log('inside new mountain');
+        database.ref('/searches').child(searchTerm).set({ count: 1 });
+      }
+
+      getLiftieReport();
     }
 
-    getLiftieReport(searchTerm);
-    // getTopSearches(searchTerm);
+
   });
 
 
   //call the liftie and google api's and populate the mountain cards with responses
-  function getLiftieReport(mountain) {
+  function getLiftieReport() {
 
+    var mountain = $("#mountainInput").val().trim().toLowerCase();
+
+    console.log('mountain inside liftie', mountain);
     if (mountain != null && mountain != "") {
 
       getTravelTime().then(function (travelInfo) {
@@ -99,22 +135,6 @@ $(document).ready(function () {
   };
 
 
-  //enable the search button when user has entered mountain and location
-  $('.input-text').on('keyup', function (event) {
-
-    event.preventDefault();
-    var mtn = $('#mountainInput').val();
-    var loc = $('#locationInput').val();
-
-    if (mtn && loc) {
-      $('#searchButton').removeClass('disabled').prop('disabled', false);
-    }
-    else {
-      $('#searchButton').addClass('disabled').prop('disabled', true);
-    }
-  });
-
-
   //button that removes mountain cards
   $('.container').on('click', '.remove', function (event) {
     event.preventDefault();
@@ -136,12 +156,11 @@ $(document).ready(function () {
   function getTravelTime() {
     console.log("Hi");
     var mountain = $("#mountainInput").val();
-    var home = $("#locationInput").val();
+    var city = $("#cityInput").val();
+    var state = $("#stateInput").val();
     var queryURL = "https://maps.googleapis.com/maps/api/directions/json?origin=" +
-      home +
+      city + '+' + state +
       "&destination=" + mountain + "&key=AIzaSyDRGTwL70MZMi0xfqWIPGWLTP1IdTHjHPA";
-    console.log(mountain)
-    console.log(home)
 
     return $.ajax({
       url: queryURL,
