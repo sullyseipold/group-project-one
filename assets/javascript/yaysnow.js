@@ -26,6 +26,7 @@ $(document).ready(function () {
   $("#searchButton").on("click", function (event) {
     console.log("I've been clicked!");
 
+    //inputs validation
     var reg = /^[a-zA-Z\s]+(-[a-zA-Z]+)*$/;
     var inputs = document.getElementsByClassName('needs-validation');
     var formValid = true;
@@ -62,8 +63,6 @@ $(document).ready(function () {
 
       getLiftieReport();
     }
-
-
   });
 
 
@@ -75,76 +74,81 @@ $(document).ready(function () {
     console.log('mountain inside liftie', mountain);
     if (mountain != null && mountain != "") {
 
-      getTravelTime().then(function (travelInfo) {
+      var notFound = `${mountain} info not found`;
+
+      var cardObject = {
+        name: "",
+        forcast: "",
+        liftsOpen: "",
+        liftsClosed: "",
+        travelInfo: "",
+        notFound: notFound,
+      }
+
+      console.log('not found ', notFound);
+
+      getTravelTime().then(function (travelInfoResponse) {
+
+        cardObject.travelInfo = travelInfoResponse;
 
         $.get(liftieUrl + mountain).then(function (response) {
 
           console.log('liftie response ', response);
-          var name;
-          var forcast;
-          var liftsOpen;
-          var liftsClosed;
-          var notFound = `${mountain} info not found`;
+          cardObject.name = response.name;
+          cardObject.forcast = response.weather.text;
+          cardObject.liftsOpen = response.lifts.stats.open;
+          cardObject.liftsClosed = response.lifts.stats.closed;
 
-          //if 3 cards in a row, then create a new row
-          if (cardCount % 3 == 0) {
-            row = $('<div>').addClass('row card-row');
-            $('.container').append(row);
-          }
+          populateCard(cardObject);
 
-          if (response == null) {
-            name = notFound;
-            forcast = notFound;
-            liftsOpen = notFound;
-            liftsClosed = notFound;
-          } else {
-            name = response.name;
-            forcast = response.weather.text;
-            liftsOpen = response.lifts.stats.open;
-            liftsClosed = response.lifts.stats.closed;
-          }
+        }).catch(function (err) {
 
+          cardObject.name = mountain;
+          cardObject.forcast = "not found";
+          cardObject.liftsOpen = "not found";
+          cardObject.liftsClosed = "not found";
 
-          //create and populate the mountain cards
-          var col = $('<div>').addClass('col-sm-4').attr('id', 'card-' + cardNumber);
-          var card = $('<div>').addClass('card');
-          var cardBody = $('<div>').addClass('card-body');
-
-          col.append(card);
-          card.append(cardBody);
-
-          cardBody.append($('<span>').addClass("card-title text-center").text(response.name));
-          cardBody.append($('<a>').addClass('btn btn-secondary float-right remove').attr({
-            'href': '#',
-            'card-number': cardNumber
-          }).text('X'));
-          cardBody.append($('<hr>'));
-          cardBody.append($('<span>').addClass("card-text weather-display-title block").text("Forecast:"));
-          cardBody.append($('<span>').addClass("card-text weather-display bock").text(response.weather.text));
-          cardBody.append($('<hr>'));
-          cardBody.append($('<span>').addClass("card-text lift-report-display-title block").text('Lift Status:'));
-          cardBody.append($('<span>').addClass("card-text lift-report-display-open").text('Open: ' + response.lifts.stats.open));
-          cardBody.append($('<span>').addClass("card-text lift-report-display-closed float-right").text('Closed: ' + response.lifts.stats.closed));
-          cardBody.append($('<span>').addClass("card-title text-center").text(name));
-          cardBody.append($('<a>').addClass('btn btn-secondary float-right remove').attr({ 'href': '#', 'card-number': cardNumber }).text('X'));
-          cardBody.append($('<hr>'));
-          cardBody.append($('<span>').addClass("card-text weather-display-title block").text("Forcast:"));
-          cardBody.append($('<span>').addClass("card-text weather-display bock").text(forcast));
-          cardBody.append($('<hr>'));
-          cardBody.append($('<span>').addClass("card-text lift-report-display-title block").text('Lift Status:'));
-          cardBody.append($('<span>').addClass("card-text lift-report-display-open").text('Open: ' + liftsOpen));
-          cardBody.append($('<span>').addClass("card-text lift-report-display-closed float-right").text('Closed: ' + liftsClosed));
-          cardBody.append($('<hr>'));
-          cardBody.append($('<span>').addClass("card-text drive-time-display-title block").text('Drive Time:'));
-          cardBody.append($('<span>').addClass("card-text drive-time-display-text block").text(travelInfo));
-
-          row.append(col);
-          cardCount++;
-          cardNumber++;
+          populateCard(cardObject);
+          console.log('this is the catch ', err);
         });
       });
     };
   };
+
+  function populateCard(obj) {
+
+    //if 3 cards in a row, then create a new row
+    if (cardCount % 3 == 0) {
+      row = $('<div>').addClass('row card-row');
+      $('.container').append(row);
+    }
+
+    //create and populate the mountain cards
+    var col = $('<div>').addClass('col-sm-4').attr('id', 'card-' + cardNumber);
+    var card = $('<div>').addClass('card');
+    var cardBody = $('<div>').addClass('card-body');
+
+    col.append(card);
+    card.append(cardBody);
+
+    cardBody.append($('<span>').addClass("card-title text-center").text(obj.name));
+    cardBody.append($('<a>').addClass('btn btn-secondary float-right remove').attr({ 'href': '#', 'card-number': cardNumber }).text('X'));
+    cardBody.append($('<hr>'));
+    cardBody.append($('<span>').addClass("card-text weather-display-title block").text("Forcast:"));
+    cardBody.append($('<span>').addClass("card-text weather-display bock").text(obj.forcast));
+    cardBody.append($('<hr>'));
+    cardBody.append($('<span>').addClass("card-text lift-report-display-title block").text('Lift Status:'));
+    cardBody.append($('<span>').addClass("card-text lift-report-display-open").text('Open: ' + obj.liftsOpen));
+    cardBody.append($('<span>').addClass("card-text lift-report-display-closed float-right").text('Closed: ' + obj.liftsClosed));
+    cardBody.append($('<hr>'));
+    cardBody.append($('<span>').addClass("card-text drive-time-display-title block").text('Drive Time:'));
+    cardBody.append($('<span>').addClass("card-text drive-time-display-text block").text(obj.travelInfo));
+
+    row.append(col);
+    cardCount++;
+    cardNumber++;
+  };
+
 
 
   //button that removes mountain cards
@@ -189,7 +193,6 @@ $(document).ready(function () {
       } else {
         var travelInfo = travelTime + '  ' + `(${distance})`;
       }
-
 
       return travelInfo;
     })
