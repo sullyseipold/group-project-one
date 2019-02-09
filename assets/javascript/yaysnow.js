@@ -78,7 +78,7 @@ $(document).ready(function () {
 
       var cardObject = {
         name: "",
-        forcast: "",
+        forecast: "",
         liftsOpen: "",
         liftsClosed: "",
         travelInfo: "",
@@ -95,7 +95,7 @@ $(document).ready(function () {
 
           console.log('liftie response ', response);
           cardObject.name = response.name;
-          cardObject.forcast = response.weather.text;
+          cardObject.forecast = response.weather.text;
           cardObject.liftsOpen = response.lifts.stats.open;
           cardObject.liftsClosed = response.lifts.stats.closed;
 
@@ -104,7 +104,7 @@ $(document).ready(function () {
         }).catch(function (err) {
 
           cardObject.name = mountain;
-          cardObject.forcast = "not found";
+          cardObject.forecast = "not found";
           cardObject.liftsOpen = "not found";
           cardObject.liftsClosed = "not found";
 
@@ -134,8 +134,8 @@ $(document).ready(function () {
     cardBody.append($('<span>').addClass("card-title text-center").text(obj.name));
     cardBody.append($('<a>').addClass('btn btn-secondary float-right remove').attr({ 'href': '#', 'card-number': cardNumber }).text('X'));
     cardBody.append($('<hr>'));
-    cardBody.append($('<span>').addClass("card-text weather-display-title block").text("Forcast:"));
-    cardBody.append($('<span>').addClass("card-text weather-display bock").text(obj.forcast));
+    cardBody.append($('<span>').addClass("card-text weather-display-title block").text("Forecast:"));
+    cardBody.append($('<span>').addClass("card-text weather-display bock").text(obj.forecast));
     cardBody.append($('<hr>'));
     cardBody.append($('<span>').addClass("card-text lift-report-display-title block").text('Lift Status:'));
     cardBody.append($('<span>').addClass("card-text lift-report-display-open").text('Open: ' + obj.liftsOpen));
