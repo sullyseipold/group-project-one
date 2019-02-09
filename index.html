@@ -6,123 +6,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
-  <!-- CSS/Bootstrap link  -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+  <!-- Load the bootstrap stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
 
-  <!-- Javascript/jQuery  -->
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script rel="text/javascript" src="assets/yaysnow.js" defer></script>
+  <!-- Load Jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Load Cloudflare for jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <!-- Load Bootsrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Caveat|Staatliches" rel="stylesheet">
+  <script src="./assets/javascript/yaysnow.js"></script>
+  <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 </head>
 
-<!-- header -->
-
 <body>
 
   <header class="fluid-container">
-
     <h1> Stay in the Snow </h1>
-
   </header>
 
-
   <div class="container">
-
-    <!-- search area DIV  -->
+    <!--container-->
 
     <div class="row searchArea">
+      <!--searchArea div-->
 
-      <!-- Enter Mountain div-->
-
+      <!--mountain div-->
       <div class="col-sm-4 mountain">
         <div class="form-group">
           <label for="mountainInput">Enter mountain:</label>
-          <input type="text" class="form-control" id="mountainInput" aria-describedby="emailHelp" placeholder="Mountian name">
-          <small id="emailHelp" class="form-text text-muted">Stay in the (s)Know with live-time mountain conditions!</small>
+          <input type="text" class="form-control input-text needs-validation" id="mountainInput" aria-describedby="mountain-help-text"
+            placeholder="Mountain name" required>
+          <div class="invalid-feedback">
+            Please enter a valid mountain
+          </div>
+          <small id="mountain-input-bottom-text" class="form-text text-muted">Stay in the (s)Know with live-time
+            mountain conditions!</small>
         </div>
-
       </div>
-
-      <!-- Enter Location div -->
+      <!--mountain div-->
 
       <div class="col-sm-4 myLocation ">
+
+        <!--city div-->
+        <div class="form-group city">
+          <label for="cityInput">Enter your current city:</label>
+          <input type="text" class="form-control input-text needs-validation" id="cityInput" aria-describedby="emailHelp"
+            placeholder="city">
+          <div class="invalid-feedback">
+            Please provide a valid city
+          </div>
+        </div>
+        <!--city dive-->
+
+        <!--state div-->
+        <div class="form-group state">
+          <label for="stateInput">Enter your current state:</label>
+          <input type="text" class="form-control input-text needs-validation" id="stateInput" aria-describedby="emailHelp"
+            placeholder="state">
+          <div class="invalid-feedback">
+            Please provide a valid state
+          </div>
+        </div>
+      </div>
+      <!--state div-->
+
+      <div class="col-sm-4 mountain">
         <div class="form-group">
-          <label for="locationInput">Enter your current location:</label>
-          <input type="text" class="form-control" id="locationInput" aria-describedby="emailHelp" placeholder="Mountian name">
-          <small id="locationHelp" class="form-text text-muted">Where are you now?</small>
-        </div>
-
-      </div>
-
-
-      <!-- Clear Button div -->
-
-      <div class="col-lg-4">
-        <div>
-          <iframe width="100%" height="170" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/288486789&color=%2300fbff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+          <span class="top-search-title block">Today's Top Searches:</span>
+          <span class="top-search-text block" id="top-search1"></span>
+          <span class="top-search-text block" id="top-search2"></span>
+          <span class="top-search-text block" id="top-search3"></span>
         </div>
       </div>
-
-      <button type="button" class="btn btn-secondary btn-lg btn-block .searchButton">Send yo' Search</button>
-
     </div>
+    <!--searchArea div-->
+
+    <div>
+      <!--search button div-->
+      <button type="submit" class="btn btn-secondary btn-lg btn-block" id="searchButton">Send yo'
+        Search</button>
+    </div>
+    <!--search button div-->
+
   </div>
-
-  <div class="row searchResult">
-
-    <div class="customContainer">
-
-      <div class="row card-deck searchResult">
-
-        <div class="info">
-          <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="info">
-          <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="info">
-          <div class="card">
-            <img class="card-img-top" src=".../100px200/" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-      </div>
-
-
+  <!--container-->
 </body>
 
 </html>

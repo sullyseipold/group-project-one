@@ -1,0 +1,143 @@
+header {
+  color: #27282B;
+  font-size: 36px;
+  line-height: 34px;
+  background-image: url(../photos/mountainBanner2.png);
+  width: 100%;
+  height: 140px;
+  background-color: rgb(64, 161, 252);
+  border-bottom: 10em;
+  border-bottom-color: black;
+  margin-bottom: 10px;
+
+}
+
+h1 {
+
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 5rem;
+  font-style: bold;
+  position: center;
+
+}
+
+body {
+
+  color: #27282B;
+  font-size: 1rem;
+  line-height: 34px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-image: url(../photos/snowyBackground2.jpeg);
+  background-color: rgb(21, 134, 226);
+  height: 100%;
+
+}
+
+.container {
+
+  color: #27282B;
+  font-size: 18px;
+  line-height: 34px;
+  height: 100%;
+
+}
+
+.searchArea {
+
+  color: #27282B;
+  font-family: 'Caveat', cursive;
+  width: 100%;
+  height: 100%;
+
+}
+
+.mountain,
+.top-search {
+  padding: 0.75rem;
+  color: #27282B;
+  font-family: 'Caveat', cursive;
+  font-size: 36px;
+  background-color: rgba(51, 169, 248, 0.801);
+}
+
+.myLocation {
+
+  color: #27282B;
+  font-family: 'Caveat', cursive;
+  background-color: rgba(242, 188, 253, 0.685);
+  font-size: 36px;
+  padding: 0.75rem;
+}
+
+#mountainInput,
+#stateInput,
+#cityInput {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.customContainer {
+  margin: 0 5% 0 5%;
+}
+
+#searchButton {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card-title {
+  font-family: 'Staatliches', cursive;
+  font-size: 2rem;
+}
+
+.card-row {
+  margin-bottom: 20px;
+}
+
+.btn .remove {
+  float: right;
+  text-align: right;
+}
+
+.top-search {
+  font-size: 36px;
+  height: 202px;
+}
+
+.block {
+  display: block;
+}
+
+.top-search-title {
+  margin-bottom: 5px;
+  padding: 0.75rem;
+}
+
+.top-search-text {
+  font-family: 'Staatliches', cursive;
+  font-size: 1.5rem;
+  padding: 0 1rem 0;
+}
+
+#searchButton {
+  margin-top: 10px;
+  margin-left: -14px;
+  margin-bottom: 10px;
+}
+
+.invalid-feedback {
+  font-size: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.weather-display-title,
+.lift-report-display-title,
+.drive-time-display-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+}
