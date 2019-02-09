@@ -113,6 +113,18 @@ $(document).ready(function () {
           col.append(card);
           card.append(cardBody);
 
+          cardBody.append($('<span>').addClass("card-title text-center").text(response.name));
+          cardBody.append($('<a>').addClass('btn btn-secondary float-right remove').attr({
+            'href': '#',
+            'card-number': cardNumber
+          }).text('X'));
+          cardBody.append($('<hr>'));
+          cardBody.append($('<span>').addClass("card-text weather-display-title block").text("Forecast:"));
+          cardBody.append($('<span>').addClass("card-text weather-display bock").text(response.weather.text));
+          cardBody.append($('<hr>'));
+          cardBody.append($('<span>').addClass("card-text lift-report-display-title block").text('Lift Status:'));
+          cardBody.append($('<span>').addClass("card-text lift-report-display-open").text('Open: ' + response.lifts.stats.open));
+          cardBody.append($('<span>').addClass("card-text lift-report-display-closed float-right").text('Closed: ' + response.lifts.stats.closed));
           cardBody.append($('<span>').addClass("card-title text-center").text(name));
           cardBody.append($('<a>').addClass('btn btn-secondary float-right remove').attr({ 'href': '#', 'card-number': cardNumber }).text('X'));
           cardBody.append($('<hr>'));
